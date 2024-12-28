@@ -3,6 +3,10 @@
     background-color: #1e1e1e;
     color: white;
     text-align: center;
+    min-height: 100vh; /* Ensures the section fills the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .section-title {
@@ -11,10 +15,11 @@
   }
   
   .projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Space between project cards */
+    justify-content: center; /* Center align the grid */
+    align-items: center; /* Vertically center */
   }
   
   .project-card {
@@ -22,18 +27,22 @@
     border: 1px solid #444;
     border-radius: 10px;
     overflow: hidden;
-    width: 300px;
     text-align: center;
+    transition: transform 0.3s ease;
   }
   
-  .image-container img {
+  .project-card:hover {
+    transform: scale(1.03); /* Slight hover effect */
+  }
+  
+  .project-card img {
     width: 100%;
     height: auto;
     transition: transform 0.3s ease;
   }
   
-  .image-container img:hover {
-    transform: scale(1.05);
+  .project-card img:hover {
+    transform: scale(1.05); /* Slight zoom-in on hover */
   }
   
   .details-container {
@@ -91,6 +100,14 @@
     color: #1e1e1e;
   }
   
+  .project-description {
+    font-size: 1rem;
+    color: #bbb;
+    margin-top: 10px;
+    padding: 0 10px;
+    text-align: center;
+  }
+  
   .close-popup {
     background-color: transparent;
     border: 2px solid white;
@@ -104,9 +121,5 @@
   .close-popup:hover {
     background-color: white;
     color: #1e1e1e;
-  }
-  
-  .hidden {
-    display: none;
   }
   
