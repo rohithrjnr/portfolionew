@@ -1,2 +1,13 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<app-navbar (navigateToSection)="scrollToSection($event)"></app-navbar>
+
+<div id="sections">
+  <!-- Home Section -->
+  <div #homeSection class="section home-section">
+    <app-first-page></app-first-page>
+  </div>
+
+  <!-- Projects Section -->
+  <div #projectsSection class="section projects-section">
+    <app-projects-section></app-projects-section>
+  </div>
+</div>

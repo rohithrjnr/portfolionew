@@ -1,0 +1,19 @@
+html {
+    scroll-behavior: smooth; /* Adds smooth scrolling */
+  }
+  
+  .section {
+    min-height: 100vh; /* Each section takes full viewport height */
+    width: 100%;
+    scroll-snap-align: start; /* Align sections on scroll */
+    scroll-snap-type: y mandatory;
+  }
+  
+  .home-section {
+    background-color: #1e1e1e; /* Example styling */
+  }
+  
+  .projects-section {
+    background-color: #2a2a2a; /* Example styling */
+  }
+  

@@ -1,0 +1,29 @@
+<div class="projects-section">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-container">
+      <!-- Example Project -->
+      <div class="project-card">
+        <div class="image-container">
+          <a href="https://example-project-website.com" target="_blank">
+            <img src="assets/project1-screenshot.png" alt="Project Screenshot" />
+          </a>
+        </div>
+        <div class="details-container">
+          <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/frontendRepo', 'https://github.com/backendRepo')">
+            Source Code
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Popup Modal -->
+    <div class="popup" *ngIf="isPopupVisible">
+      <div class="popup-content">
+        <h3>Select Repository</h3>
+        <a [href]="frontendRepo" target="_blank" class="repo-link">Frontend</a>
+        <a [href]="backendRepo" target="_blank" class="repo-link">Backend</a>
+        <button class="close-popup" (click)="closeSourceCodePopup()">Close</button>
+      </div>
+    </div>
+  </div>
+  

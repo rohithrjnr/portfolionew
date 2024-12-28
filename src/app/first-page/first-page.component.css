@@ -1,76 +1,163 @@
-/* First Page Container */
+/* Main Page Styling */
 .first-page {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #181818;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #1e1e1e; /* Dark mode background */
     color: white;
-    text-align: center;
+    overflow: hidden; /* Prevent scrolling overflow */
+  }
+  
+  /* Container to hold both text and image sections */
+  .content-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Limit max width for larger screens */
     padding: 20px;
-    overflow: hidden;
+    box-sizing: border-box;
   }
   
-  /* Image Styling */
-  .image-container {
-    width: 100%;
-    height: 50vh;
-    overflow: hidden;
-    margin-bottom: 20px;
+  /* Text and Button Styling */
+  .details-container {
+    flex: 1;
+    padding: 20px;
+    max-width: 500px; /* Limit width of text container */
+    z-index: 1; /* Keep text and button above the image */
   }
   
-  .image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    scroll-behavior: smooth;
-  }
-  
-  /* Details Styling */
   .details-container h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 3rem; /* Larger font size for the name */
+    margin-bottom: 1rem;
+    font-weight: bold;
   }
   
   .details-container p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: #d1d1d1;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #ccc; /* Lighter color for description */
   }
   
-  /* Stylish Download Button */
-  .download-btn {
+  /* Buttons Styling */
+  .buttons-container {
+    display: flex;
+    gap: 15px; /* Space between buttons */
+    margin-top: 1rem;
+  }
+  
+  .action-btn {
     display: inline-block;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #00d8ff;
+    padding: 8px 18px; /* Smaller button size */
+    font-size: 1.1rem;
+    color: white;
     text-decoration: none;
-    border: 2px solid #00d8ff;
+    border: 2px solid white;
     border-radius: 5px;
     background-color: transparent;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
   }
   
-  .download-btn:hover {
-    background-color: #00d8ff;
-    color: #181818;
+  .action-btn:hover {
+    background-color: white;
+    color: #1e1e1e;
+  }
+  
+  /* Icon Button Styling */
+  .icon-btn {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .icon-btn:hover {
+    transform: scale(1.2); /* Scale effect on hover */
+  }
+  
+  .icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure logos fit inside their containers */
+  }
+  
+  /* Image Section */
+  .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative; /* Required for positioning the image */
+    max-width: 50%;
+  }
+  
+  /* Image Fade-in Effect */
+  .fade-in {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    animation: fadeIn 2s ease-in-out;
+    border-right: 5px solid white; /* Border on the right */
+    border-bottom: 5px solid white; /* Border on the bottom */
+  }
+  .fade-in-border {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    animation: fadeIn 2s ease-in-out;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
   
   /* Responsive Design */
   @media (max-width: 768px) {
+    .details-container {
+      max-width: 100%; /* Allow full width for smaller screens */
+      text-align: center;
+    }
+  
+    .image-container {
+      max-width: 100%; /* Image takes full width on smaller screens */
+      margin-top: 20px; /* Add some spacing between text and image */
+    }
+  
+    .content-container {
+      flex-direction: column; /* Stack content vertically on small screens */
+      align-items: center;
+    }
+  
+    .action-btn {
+      font-size: 1rem; /* Reduce font size on smaller screens */
+      padding: 6px 14px; /* Adjust padding */
+    }
+  
+    .icon-btn {
+      width: 30px;
+      height: 30px; /* Smaller icon size for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
     .details-container h1 {
-      font-size: 2rem;
+      font-size: 2.5rem; /* Adjust heading size for smaller screens */
     }
   
     .details-container p {
-      font-size: 1rem;
-    }
-  
-    .download-btn {
-      font-size: 0.9rem;
-      padding: 8px 16px;
+      font-size: 1.2rem; /* Adjust paragraph size */
     }
   }
   
