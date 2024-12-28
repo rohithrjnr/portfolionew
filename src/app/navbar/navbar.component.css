@@ -1,0 +1,96 @@
+/* Navbar container */
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 60px;
+    background-color: #181818;
+    border-left: 2px solid #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+    z-index: 1000;
+  }
+  
+  .navbar:hover {
+    width: 200px; /* Expand navbar on hover */
+  }
+  
+  /* Menu icon (visible by default) */
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  }
+  
+  .menu-icon span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .navbar:hover .menu-icon span {
+    background-color: #00d8ff; /* Highlight on hover */
+  }
+  
+  /* Menu items (hidden initially) */
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    margin-top: 80px; /* Adjusted to appear below the menu icon */
+    width: 100%;
+  }
+  
+  .navbar:hover .menu {
+    display: block; /* Show menu on hover */
+  }
+  
+  .menu li {
+    margin: 20px 0;
+    text-align: left;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .menu li a:hover {
+    background-color: #333;
+    color: #00d8ff; /* Highlight menu item on hover */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .navbar {
+      width: 50px;
+    }
+  
+    .navbar:hover {
+      width: 150px;
+    }
+  
+    .menu li a {
+      font-size: 1rem;
+    }
+  }
+  
