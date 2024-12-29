@@ -28,6 +28,7 @@
     transition: transform 0.3s ease;
   }
   
+  
   .skill-card:hover {
     transform: scale(1.05); /* Slight zoom effect */
   }
