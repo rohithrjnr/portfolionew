@@ -16,7 +16,7 @@
 
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
   gap: 20px; /* Space between project cards */
   justify-content: center; /* Center align the grid */
   align-items: stretch; /* Ensure all cards have equal height */
@@ -132,4 +132,21 @@
 .close-popup:hover {
   background-color: white;
   color: #1e1e1e;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    grid-template-columns: 1fr; /* Single column for mobile */
+  }
+
+  .section-title {
+    font-size: 2rem; /* Adjust title size for mobile */
+  }
 }
