@@ -4,9 +4,7 @@ import { FirstPageComponent } from './first-page/first-page.component';
 import { ProjectsSectionComponent } from './projects-section/projects-section.component';
 import { SkillsSectionComponent } from './skills-section/skills-section.component';
 const routes: Routes = [
-  { path: '', component: FirstPageComponent },
-  { path: 'projects', component: ProjectsSectionComponent },
-  { path: 'skills', component: SkillsSectionComponent }
+  { path: '', component: FirstPageComponent }
 ];
 
 @NgModule({

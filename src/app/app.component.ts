@@ -12,6 +12,7 @@ export class AppComponent {
   @ViewChild('homeSection', { static: false }) homeSection!: ElementRef;
   @ViewChild('skillSection', { static: false }) skillSection!: ElementRef;
   @ViewChild('aboutmeSection', { static: false }) aboutmeSection!: ElementRef;
+  @ViewChild('contactSection', { static: false }) contactSection!: ElementRef;
 
   currentSection: string = 'home'; // Tracks the current section visible
 
@@ -21,6 +22,9 @@ export class AppComponent {
     const homeSectionPosition = this.homeSection?.nativeElement.offsetTop;
     const skillSectionPosition = this.skillSection?.nativeElement.offsetTop;
     const aboutmeSectionPosition=this.aboutmeSection?.nativeElement.offsetTop;
+    const contactSectionPosition=this.contactSection?.nativeElement.offsetTop;
+
+    
     const scrollPosition = window.pageYOffset + window.innerHeight / 2;
 
     if (scrollPosition >= projectsSectionPosition) {
@@ -33,6 +37,9 @@ export class AppComponent {
     }
     else if (scrollPosition >= aboutmeSectionPosition) {
       this.currentSection = 'aboutme';
+    }
+    else if (scrollPosition >= contactSectionPosition) {
+      this.currentSection = 'contact';
     }
   }
 
@@ -48,6 +55,8 @@ export class AppComponent {
     targetSection = this.skillSection.nativeElement;
      }else if (section === 'aboutme') {
       targetSection = this.aboutmeSection.nativeElement;
+    }else if (section === 'contact') {
+      targetSection = this.contactSection.nativeElement;
     }
   else {
       return;

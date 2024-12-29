@@ -1,0 +1,50 @@
+<section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="contact-description">You can reach me through any of the following channels:</p>
+  
+      <div class="contact-options">
+        <div class="contact-item">
+          <i class="fas fa-phone contact-icon"></i>
+          <p class="contact-text">Phone: <a href="https://wa.link/0yztgp">+91 9605860533</a></p>
+        </div>
+  
+        <div class="contact-item">
+          <i class="fas fa-envelope contact-icon"></i>
+          <p class="contact-text">Email: <a href="mailto:rohithrjnr43@gmail.com">rohithrjnr43&#64;gmail.com</a></p>
+        </div>
+  
+        <div class="contact-item">
+          <i class="fab fa-instagram contact-icon"></i>
+          <p class="contact-text">Instagram: <a href="https://instagram.com/_.so_u_l_" target="_blank">_.so_u_l_</a></p>
+        </div>
+      </div>
+  
+      <div class="review-section">
+        <h3 class="review-title">Leave a Review</h3>
+        <form (ngSubmit)="onSubmit(reviewForm)" #reviewForm="ngForm">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            [(ngModel)]="name"
+            class="review-input"
+            placeholder="Your Name"
+            required
+          />
+          <textarea
+            id="review"
+            name="review"
+            [(ngModel)]="review"
+            class="review-input"
+            placeholder="Your Review"
+            required
+          ></textarea>
+          <button type="submit" class="submit-button" [disabled]="!reviewForm.valid">
+            Submit Review
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+  

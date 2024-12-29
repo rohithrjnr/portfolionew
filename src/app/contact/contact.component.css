@@ -1,0 +1,124 @@
+/* General section styling */
+.contact-section {
+    padding: 50px 20px;
+    color: white;
+    background-color: #1e1e1e; /* Slightly darker background */
+    text-align: center;
+    height: auto;
+    min-height: 100vh; /* Ensure the section covers the entire viewport */
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .contact-description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  /* Contact options styling */
+  .contact-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .contact-icon {
+    width: 30px;
+    height: 30px;
+    color: #bbb;
+  }
+  
+  .contact-text {
+    font-size: 1rem;
+  }
+  
+  .contact-text a {
+    color: #bbb;
+    text-decoration: none;
+  }
+  
+  .contact-text a:hover {
+    color: white;
+  }
+  
+  /* Review section styling */
+  .review-section {
+    background-color: #2a2a2a;
+    padding: 30px 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+  }
+  
+  .review-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  .review-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .review-input:focus {
+    border-color: #66b3ff;
+    outline: none;
+  }
+  
+  .submit-button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .submit-button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  
+  .submit-button:hover:not(:disabled) {
+    background-color: #218838;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .contact-options {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .contact-item {
+      justify-content: center;
+    }
+  
+    .contact-text {
+      font-size: 1rem;
+    }
+  
+    .review-title {
+      font-size: 1.5rem;
+    }
+  }
+  

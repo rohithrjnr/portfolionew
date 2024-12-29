@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -9,6 +9,8 @@ import { FirstPageComponent } from './first-page/first-page.component';
 import { ProjectsSectionComponent } from './projects-section/projects-section.component';
 import { SkillsSectionComponent } from './skills-section/skills-section.component';
 import { AboutMeComponent } from './about-me/about-me.component';
+import { ContactComponent } from './contact/contact.component';
+
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { AboutMeComponent } from './about-me/about-me.component';
     FirstPageComponent,
     ProjectsSectionComponent,
     SkillsSectionComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
