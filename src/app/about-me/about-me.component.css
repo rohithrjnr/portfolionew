@@ -1,0 +1,29 @@
+.about-section {
+    padding: 50px 0; /* Adds spacing from top and bottom */
+    color: white;
+    text-align: center; /* Ensures the title is centered */
+    background-color: #282829; /* Lighter background than the other sections */
+    height: 100vh; /* Makes sure the background covers the entire viewport height */
+    display: flex;
+    flex-direction: column; /* Aligns title and content vertically */
+    justify-content: center; /* Centers the content vertically */
+    align-items: center; /* Centers the content horizontally */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto; /* Centers the content horizontally */
+    padding: 20px;
+    line-height: 1.6; /* Increases line height for better readability */
+    font-size: 1rem;
+    text-align: left; /* Aligns the content text to the left */
+}
+
+.about-content p {
+    margin-bottom: 15px;
+}
