@@ -1,95 +1,99 @@
 <div class="projects-section">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-container">
-      <!-- Example Project -->
-      <div class="project-card">
-        <div class="image-container">
-          <a href="https://budget-allocation-project.vercel.app/" target="_blank">
-            <img src="assets/project-1.PNG" alt="Project Screenshot" />
-          </a>
-        </div>
-        <div class="details-container">
-          <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/Budget-allocation-project', '')">
-            Source Code
-          </button>
-          <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat neque et tortor iaculis, at lacinia ligula feugiat.</p>
-        </div>
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-container">
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="image-container">
+        <a href="https://budget-allocation-project.vercel.app/" target="_blank">
+          <img src="assets/project-1.PNG" alt="Budget Allocation App Screenshot" />
+        </a>
       </div>
-      <div class="project-card">
-        <div class="image-container">
-          <a href="https://budget-allocation-project.vercel.app/" target="_blank">
-            <img src="assets/project-2.PNG" alt="Project Screenshot" />
-          </a>
-        </div>
-        <div class="details-container">
-          <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/Budget-allocation-project', '')">
-            Source Code
-          </button>
-          <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat neque et tortor iaculis, at lacinia ligula feugiat.</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="image-container">
-          <a href="https://budget-allocation-project.vercel.app/" target="_blank">
-            <img src="assets/project-3.PNG" alt="Project Screenshot" />
-          </a>
-        </div>
-        <div class="details-container">
-          <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/Budget-allocation-project', '')">
-            Source Code
-          </button>
-          <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat neque et tortor iaculis, at lacinia ligula feugiat.</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="image-container">
-          <a href="https://budget-allocation-project.vercel.app/" target="_blank">
-            <img src="assets/project-4.PNG" alt="Project Screenshot" />
-          </a>
-        </div>
-        <div class="details-container">
-          <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/Budget-allocation-project', '')">
-            Source Code
-          </button>
-          <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat neque et tortor iaculis, at lacinia ligula feugiat.</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="image-container">
-          <a href="https://budget-allocation-project.vercel.app/" target="_blank">
-            <img src="assets/project-5.PNG" alt="Project Screenshot" />
-          </a>
-        </div>
-        <div class="details-container">
-          <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/Budget-allocation-project', '')">
-            Source Code
-          </button>
-          <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat neque et tortor iaculis, at lacinia ligula feugiat.</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="image-container">
-          <a href="https://budget-allocation-project.vercel.app/" target="_blank">
-            <img src="assets/project-6.PNG" alt="Project Screenshot" />
-          </a>
-        </div>
-        <div class="details-container">
-          <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/Budget-allocation-project', '')">
-            Source Code
-          </button>
-          <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat neque et tortor iaculis, at lacinia ligula feugiat.</p>
-        </div>
+      <div class="details-container">
+        <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/Budget-allocation-project', '')">
+          Source Code
+        </button>
+        <p class="project-description">A Budget Allocation App built with React.js. This application helps users plan and allocate their budget efficiently with an interactive and user-friendly interface.</p>
       </div>
     </div>
-  
-    <!-- Popup Modal -->
-    <div class="popup" *ngIf="isPopupVisible">
-      <div class="popup-content">
-        <h3>Select Repository</h3>
-        <a [href]="frontendRepo" target="_blank" class="repo-link">Frontend</a>
-        <a [href]="backendRepo" target="_blank" class="repo-link">Backend</a>
-        <button class="close-popup" (click)="closeSourceCodePopup()">Close</button>
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="image-container">
+        <a href="https://task-management-website-phi.vercel.app/" target="_blank">
+          <img src="assets/project-2.PNG" alt="Task Management Website Screenshot" />
+        </a>
+      </div>
+      <div class="details-container">
+        <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/TaskManagementWebsite', '')">
+          Source Code
+        </button>
+        <p class="project-description">An Angular-based Task Management Website featuring drag-and-drop functionality for task organization and Chart.js for graphical representations of data.</p>
+      </div>
+    </div>
+    <!-- Project 3 -->
+    <div class="project-card">
+      <div class="image-container">
+        <a href="https://portfolio-ibm.vercel.app/" target="_blank">
+          <img src="assets/project-3.PNG" alt="Portfolio Website Screenshot" />
+        </a>
+      </div>
+      <div class="details-container">
+        <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/PortfolioIBM', '')">
+          Source Code
+        </button>
+        <p class="project-description">A responsive portfolio website created using HTML and CSS. Designed to showcase projects and skills with a clean and minimalistic layout.</p>
+      </div>
+    </div>
+    <!-- Project 4 -->
+    <div class="project-card">
+      <div class="image-container">
+        <a href="https://nutello-final.vercel.app/" target="_blank">
+          <img src="assets/project-4.PNG" alt="Nutello Dashboard Screenshot" />
+        </a>
+      </div>
+      <div class="details-container">
+        <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/Nutello-final', '')">
+          Source Code
+        </button>
+        <p class="project-description">A task management dashboard inspired by Trello, implemented with JavaScript. It includes drag-and-drop functionality to organize tasks effectively.</p>
+      </div>
+    </div>
+    <!-- Project 5 -->
+    <div class="project-card">
+      <div class="image-container">
+        <a href="https://taskmanagementusingpy.vercel.app/" target="_blank">
+          <img src="assets/project-5.PNG" alt="Full-Stack Task Management App Screenshot" />
+        </a>
+      </div>
+      <div class="details-container">
+        <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/Task-Management-Simple-A', 'https://github.com/rohithrjnr/Task-Management-Simple-PY')">
+          Source Code
+        </button>
+        <p class="project-description">A full-stack Task Management application with a Flask and Python backend and a frontend built using HTML, CSS, and Bootstrap. The app facilitates efficient task tracking and requires the backend to run for full functionality.</p>
+      </div>
+    </div>
+    <!-- Project 6 -->
+    <div class="project-card">
+      <div class="image-container">
+        <a href="https://recipereaderpython.vercel.app/" target="_blank">
+          <img src="assets/project-6.PNG" alt="Recipe Reader App Screenshot" />
+        </a>
+      </div>
+      <div class="details-container">
+        <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/RecipeProjectFrontend', 'https://github.com/rohithrjnr/RecipeProjectBackend')">
+          Source Code
+        </button>
+        <p class="project-description">A full-stack Recipe Reader application developed with a Flask and Python backend and an Angular-based frontend. Users can explore recipes through an intuitive interface, supported by responsive design.</p>
       </div>
     </div>
   </div>
-  
+
+  <!-- Popup Modal -->
+  <div class="popup" *ngIf="isPopupVisible">
+    <div class="popup-content">
+      <h3>Select Repository</h3>
+      <a [href]="frontendRepo" target="_blank" class="repo-link">Frontend</a>
+      <a [href]="backendRepo" target="_blank" class="repo-link">Backend</a>
+      <button class="close-popup" (click)="closeSourceCodePopup()">Close</button>
+    </div>
+  </div>
+</div>

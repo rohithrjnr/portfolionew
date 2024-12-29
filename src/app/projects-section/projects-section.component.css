@@ -1,125 +1,135 @@
 .projects-section {
-    padding: 50px;
-    background-color: #1e1e1e;
-    color: white;
-    text-align: center;
-    min-height: 100vh; /* Ensures the section fills the viewport */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-  }
-  
-  .projects-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 20px; /* Space between project cards */
-    justify-content: center; /* Center align the grid */
-    align-items: center; /* Vertically center */
-  }
-  
-  .project-card {
-    background-color: #2a2a2a;
-    border: 1px solid #444;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease;
-  }
-  
-  .project-card:hover {
-    transform: scale(1.03); /* Slight hover effect */
-  }
-  
-  .project-card img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
-  }
-  
-  .project-card img:hover {
-    transform: scale(1.05); /* Slight zoom-in on hover */
-  }
-  
-  .details-container {
-    padding: 20px;
-  }
-  
-  .source-code-btn {
-    background-color: transparent;
-    border: 2px solid white;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .source-code-btn:hover {
-    background-color: white;
-    color: #1e1e1e;
-  }
-  
-  .popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .popup-content {
-    background: #2a2a2a;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .repo-link {
-    display: block;
-    margin: 10px 0;
-    color: white;
-    text-decoration: none;
-    border: 1px solid white;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .repo-link:hover {
-    background-color: white;
-    color: #1e1e1e;
-  }
-  
-  .project-description {
-    font-size: 1rem;
-    color: #bbb;
-    margin-top: 10px;
-    padding: 0 10px;
-    text-align: center;
-  }
-  
-  .close-popup {
-    background-color: transparent;
-    border: 2px solid white;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .close-popup:hover {
-    background-color: white;
-    color: #1e1e1e;
-  }
-  
+  padding: 50px;
+  background-color: #1e1e1e;
+  color: white;
+  text-align: center;
+  min-height: 100vh; /* Ensures the section fills the viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px; /* Space between project cards */
+  justify-content: center; /* Center align the grid */
+  align-items: stretch; /* Ensure all cards have equal height */
+}
+
+.project-card {
+  display: flex; /* Flexbox for consistent alignment */
+  flex-direction: column; /* Stack children vertically */
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+  height: 100%; /* Ensures all cards stretch to the same height */
+}
+
+.project-card:hover {
+  transform: scale(1.03); /* Slight hover effect */
+}
+
+.image-container {
+  flex: 1; /* Makes the image container take up available space */
+  max-height: 200px; /* Set a consistent height for all images */
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container */
+  transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.05); /* Slight zoom-in on hover */
+}
+
+.details-container {
+  padding: 20px;
+}
+
+.project-description {
+  font-size: 1rem;
+  color: #bbb;
+  margin-top: 10px;
+  padding: 0 10px;
+  text-align: center;
+  flex-grow: 1; /* Makes the description adjust dynamically */
+}
+
+.source-code-btn {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.source-code-btn:hover {
+  background-color: white;
+  color: #1e1e1e;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: #2a2a2a;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.repo-link {
+  display: block;
+  margin: 10px 0;
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.repo-link:hover {
+  background-color: white;
+  color: #1e1e1e;
+}
+
+.close-popup {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.close-popup:hover {
+  background-color: white;
+  color: #1e1e1e;
+}
