@@ -1,0 +1,35 @@
+<section class="experience-section section-container">
+  <div class="section-header reveal">
+    <p class="section-kicker">Experience</p>
+    <h2>Timeline of delivery, product work, and engineering growth.</h2>
+    <p>
+      A concise view of the domains, responsibilities, and technologies behind the portfolio.
+    </p>
+  </div>
+
+  <div class="timeline" aria-label="Experience timeline">
+    <article class="timeline-item reveal" *ngFor="let item of timeline; let index = index">
+      <div class="timeline-marker">
+        <span>{{ index + 1 }}</span>
+      </div>
+
+      <div class="timeline-card">
+        <div class="timeline-heading">
+          <p>{{ item.period }}</p>
+          <h3>{{ item.role }}</h3>
+          <span>{{ item.label }}</span>
+        </div>
+
+        <p class="timeline-summary">{{ item.summary }}</p>
+
+        <ul>
+          <li *ngFor="let point of item.points">{{ point }}</li>
+        </ul>
+
+        <div class="timeline-stack">
+          <span *ngFor="let tech of item.stack">{{ tech }}</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

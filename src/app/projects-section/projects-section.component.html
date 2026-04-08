@@ -1,99 +1,62 @@
-<div class="projects-section">
-  <h2 class="section-title">Projects</h2>
-  <div class="projects-container">
-    <!-- Project 1 -->
-    <div class="project-card">
-      <div class="image-container">
-        <a href="https://budget-allocation-project.vercel.app/" target="_blank">
-          <img src="assets/project-1.PNG" alt="Budget Allocation App Screenshot" />
-        </a>
-      </div>
-      <div class="details-container">
-        <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/Budget-allocation-project', '')">
-          Source Code
-        </button>
-        <p class="project-description">A Budget Allocation App built with React.js. This application helps users plan and allocate their budget efficiently with an interactive and user-friendly interface.</p>
-      </div>
+<section class="projects-section section-container">
+  <div class="projects-header reveal">
+    <div class="section-header">
+      <p class="section-kicker">Projects</p>
+      <h2>Selected builds with real demos, source, and stack context.</h2>
+      <p>
+        A focused set of projects spanning Angular, React, Python, Flask, dashboards, and workflow tools.
+      </p>
     </div>
-    <!-- Project 2 -->
-    <div class="project-card">
-      <div class="image-container">
-        <a href="https://task-management-website-phi.vercel.app/" target="_blank">
-          <img src="assets/project-2.PNG" alt="Task Management Website Screenshot" />
-        </a>
-      </div>
-      <div class="details-container">
-        <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/TaskManagementWebsite', '')">
-          Source Code
-        </button>
-        <p class="project-description">An Angular-based Task Management Website featuring drag-and-drop functionality for task organization and Chart.js for graphical representations of data.</p>
-      </div>
-    </div>
-    <!-- Project 3 -->
-    <div class="project-card">
-      <div class="image-container">
-        <a href="https://portfolio-ibm.vercel.app/" target="_blank">
-          <img src="assets/project-3.PNG" alt="Portfolio Website Screenshot" />
-        </a>
-      </div>
-      <div class="details-container">
-        <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/PortfolioIBM', '')">
-          Source Code
-        </button>
-        <p class="project-description">A responsive portfolio website created using HTML and CSS. Designed to showcase projects and skills with a clean and minimalistic layout.</p>
-      </div>
-    </div>
-    <!-- Project 4 -->
-    <div class="project-card">
-      <div class="image-container">
-        <a href="https://nutello-final.vercel.app/" target="_blank">
-          <img src="assets/project-4.PNG" alt="Nutello Dashboard Screenshot" />
-        </a>
-      </div>
-      <div class="details-container">
-        <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/Nutello-final', '')">
-          Source Code
-        </button>
-        <p class="project-description">A task management dashboard inspired by Trello, implemented with JavaScript. It includes drag-and-drop functionality to organize tasks effectively.</p>
-      </div>
-    </div>
-    <!-- Project 5 -->
-    <div class="project-card">
-      <div class="image-container">
-        <a href="https://taskmanagementusingpy.vercel.app/" target="_blank">
-          <img src="assets/project-5.PNG" alt="Full-Stack Task Management App Screenshot" />
-        </a>
-      </div>
-      <div class="details-container">
-        <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/Task-Management-Simple-A', 'https://github.com/rohithrjnr/Task-Management-Simple-PY')">
-          Source Code
-        </button>
-        <p class="project-description">A full-stack Task Management application with a Flask and Python backend and a frontend built using HTML, CSS, and Bootstrap. The app facilitates efficient task tracking and requires the backend to run for full functionality.</p>
-      </div>
-    </div>
-    <!-- Project 6 -->
-    <div class="project-card">
-      <div class="image-container">
-        <a href="https://recipereaderpython.vercel.app/" target="_blank">
-          <img src="assets/project-6.PNG" alt="Recipe Reader App Screenshot" />
-        </a>
-      </div>
-      <div class="details-container">
-        <button class="source-code-btn" (click)="openSourceCodePopup('https://github.com/rohithrjnr/RecipeProjectFrontend', 'https://github.com/rohithrjnr/RecipeProjectBackend')">
-          Source Code
-        </button>
-        <p class="project-description">A full-stack Recipe Reader application developed with a Flask and Python backend and an Angular-based frontend. Users can explore recipes through an intuitive interface, supported by responsive design.</p>
-      </div>
+
+    <div class="project-filters" aria-label="Project filters">
+      <button
+        *ngFor="let filter of filters"
+        type="button"
+        [class.active]="activeFilter === filter"
+        (click)="setFilter(filter)"
+      >
+        {{ filter }}
+      </button>
     </div>
   </div>
 
-  <!-- Popup Modal -->
-  <div class="popup" *ngIf="isPopupVisible">
-    <div class="popup-content">
-      <h3>Select Repository</h3>
-      <a [href]="frontendRepo" target="_blank" class="repo-link">Frontend</a>
-      <a [href]="backendRepo" target="_blank" class="repo-link">Backend</a>
-      <button class="close-popup" (click)="closeSourceCodePopup()">Close</button>
+  <div class="projects-grid">
+    <article
+      class="project-card reveal is-visible animated-border"
+      *ngFor="let project of filteredProjects; trackBy: trackByTitle"
+    >
+      <a class="project-preview" [href]="project.demoUrl" target="_blank" rel="noopener">
+        <img [src]="project.image" [alt]="project.title + ' preview'" loading="lazy" />
+      </a>
+
+      <div class="project-body">
+        <div class="project-title-row">
+          <h3>{{ project.title }}</h3>
+          <a [href]="project.demoUrl" target="_blank" rel="noopener" aria-label="Open live demo">Live</a>
+        </div>
+        <p>{{ project.description }}</p>
+
+        <div class="project-tags">
+          <span *ngFor="let tag of project.tags">{{ tag }}</span>
+        </div>
+
+        <div class="project-actions">
+          <a [href]="project.demoUrl" target="_blank" rel="noopener" class="project-action primary">Live Demo</a>
+          <button type="button" class="project-action secondary" (click)="openSourceCodePopup(project)">
+            Source Code
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="popup" *ngIf="selectedProject as project" role="dialog" aria-modal="true" (click)="closeSourceCodePopup()">
+    <div class="popup-content" (click)="$event.stopPropagation()">
+      <p class="section-kicker">Repository</p>
+      <h3>{{ project.title }}</h3>
+      <a [href]="project.frontendRepo" target="_blank" rel="noopener" class="repo-link">Frontend Repository</a>
+      <a *ngIf="project.backendRepo" [href]="project.backendRepo" target="_blank" rel="noopener" class="repo-link">Backend Repository</a>
+      <button type="button" class="close-popup" (click)="closeSourceCodePopup()">Close</button>
     </div>
   </div>
-</div>
+</section>

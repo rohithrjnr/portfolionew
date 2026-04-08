@@ -1,73 +1,31 @@
-<section class="skills-section">
-    <h2 class="section-title">Skills</h2>
-    <div class="skills-container">
-      <div class="skill-card">
-        <img src="assets/angular-icon.png" alt="Angular" class="skill-icon" />
-        <p class="skill-name">Angular</p>
+<section class="skills-section section-container">
+  <div class="section-header reveal">
+    <p class="section-kicker">Capabilities</p>
+    <h2>A stack tuned for product dashboards, APIs, and data-heavy workflows.</h2>
+    <p>
+      The core toolset spans modern frontend delivery, backend services, relational data, and practical deployment workflows.
+    </p>
+  </div>
+
+  <div class="skills-grid">
+    <article class="skill-category reveal" *ngFor="let category of categories">
+      <div class="category-heading">
+        <h3>{{ category.title }}</h3>
+        <p>{{ category.description }}</p>
       </div>
-      <div class="skill-card">
-        <img src="assets/csharp-icon.png" alt="C#" class="skill-icon" />
-        <p class="skill-name">C#</p>
+
+      <div class="skill-list">
+        <div class="skill-row" *ngFor="let skill of category.skills">
+          <div class="skill-meta">
+            <img [src]="skill.icon" [alt]="skill.name" loading="lazy" />
+            <span>{{ skill.name }}</span>
+            <strong>{{ skill.level }}%</strong>
+          </div>
+          <div class="skill-meter" aria-hidden="true">
+            <span [style.width.%]="skill.level"></span>
+          </div>
+        </div>
       </div>
-      <div class="skill-card">
-        <img src="assets/dotnet-icon.png" alt=".NET" class="skill-icon" />
-        <p class="skill-name">.NET</p>
-      </div>
-      <div class="skill-card">
-        <img src="assets/sql-icon.png" alt="Microsoft SQL Server" class="skill-icon" />
-        <p class="skill-name">Microsoft SQL</p>
-      </div>
-      <div class="skill-card">
-        <img src="assets/plsql-icon.png" alt="PLSQL" class="skill-icon" />
-        <p class="skill-name">PLSQL</p>
-      </div>
-      <div class="skill-card">
-        <img src="assets/oracle-icon.png" alt="Oracle" class="skill-icon" />
-        <p class="skill-name">Oracle</p>
-      </div>
-      <div class="skill-card">
-        <img src="assets/python-icon.png" alt="Python" class="skill-icon" />
-        <p class="skill-name">Python</p>
-      </div>
-      <div class="skill-card">
-        <img src="assets/flask-icon.png" alt="Flask" class="skill-icon" />
-        <p class="skill-name">Flask</p>
-      </div>
-      <div class="skill-card">
-        <img src="assets/react-icon.png" alt="React" class="skill-icon" />
-        <p class="skill-name">React</p>
-      </div>
-      <div class="skill-card">
-        <img src="assets/css-icon.png" alt="CSS" class="skill-icon" />
-        <p class="skill-name">CSS</p>
-      </div>
-      <div class="skill-card">
-        <img src="assets/html-icon.png" alt="HTML" class="skill-icon" />
-        <p class="skill-name">HTML</p>
-      </div>
-      <div class="skill-card">
-        <img src="assets/flutter-icon.png" alt="Flutter" class="skill-icon" />
-        <p class="skill-name">Flutter</p>
-      </div>
-      <div class="skill-card">
-        <img src="assets/django-icon.png" alt="Django" class="skill-icon" />
-        <p class="skill-name">Django</p>
-      </div>
-      
-      <div class="skill-card">
-        <img src="assets/git-icon.png" alt="Git" class="skill-icon" />
-        <p class="skill-name">Git</p>
-      </div>
-      
-      <div class="skill-card">
-        <img src="assets/docker-icon.png" alt="Docker" class="skill-icon" />
-        <p class="skill-name">Docker</p>
-      </div>
-      
-      <div class="skill-card">
-        <img src="assets/bootstrap-icon.png" alt="Bootstrap" class="skill-icon" />
-        <p class="skill-name">Bootstrap</p>
-      </div>
-    </div>
-  </section>
-  
+    </article>
+  </div>
+</section>

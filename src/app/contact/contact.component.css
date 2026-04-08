@@ -1,115 +1,191 @@
-/* General section styling */
 .contact-section {
-    padding: 50px 20px;
-    color: white;
-    background-color: #1e1e1e; /* Slightly darker background */
-    text-align: center;
-    height: auto;
-    min-height: 100vh; /* Ensure the section covers the entire viewport */
-  }
-  
-  .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .contact-description {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  
-  /* Contact options styling */
-  .contact-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    justify-content: center;
-  }
-  
-  .contact-icon {
-    width: 30px;
-    height: 30px;
-    color: #bbb;
-  }
-  
-  .contact-text {
-    font-size: 1rem;
-  }
-  
-  .contact-text a {
-    color: #bbb;
-    text-decoration: none;
-  }
-  
-  .contact-text a:hover {
-    color: white;
-  }
-  
- /* Review section styling */
-.review-section {
-  background-color: #2a2a2a;
-  padding: 30px 20px;
-  border-radius: 10px;
-  margin-top: 30px;
-  box-sizing: border-box; /* Ensures padding is included in width/height calculations */
-  max-width: 600px; /* Optional: Restrict the section's width for better layout */
-  margin-left: auto; /* Center align horizontally */
-  margin-right: auto; /* Center align horizontally */
+  display: grid;
+  min-height: 100vh;
+  align-items: center;
+  padding-top: 110px;
+  padding-bottom: 100px;
 }
 
-.review-title {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #fff;
-  text-align: center;
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.86fr);
+  gap: 42px;
+  align-items: center;
 }
 
-.review-input {
-  width: 100%; /* Ensures input box stretches across the container */
-  box-sizing: border-box; /* Includes padding and border in the width */
-  padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #444;
-  border-radius: 5px;
-  background-color: #333;
-  color: #fff;
+.contact-copy h2 {
+  max-width: 720px;
+  margin: 12px 0 0;
+  color: var(--text-primary);
+  font-size: 3.2rem;
+  line-height: 1.06;
+}
+
+.contact-copy p {
+  max-width: 620px;
+  margin: 22px 0 0;
+  color: var(--text-secondary);
+  font-size: 1.03rem;
+  line-height: 1.75;
+}
+
+.contact-options {
+  display: grid;
+  gap: 12px;
+  max-width: 580px;
+  margin-top: 32px;
+}
+
+.contact-item,
+.contact-form {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 8px;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.42));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px);
+}
+
+.contact-item {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  padding: 18px 20px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.contact-item:hover {
+  border-color: rgba(103, 232, 249, 0.46);
+  background: rgba(8, 47, 73, 0.5);
+  transform: translateY(-3px);
+}
+
+.contact-item span {
+  color: #67e8f9;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contact-item strong {
+  overflow: hidden;
+  color: var(--text-primary);
   font-size: 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.review-input:focus {
-  border-color: #66b3ff;
+.contact-form {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  padding: 28px;
+}
+
+.form-header {
+  margin-bottom: 8px;
+}
+
+.form-header span {
+  color: #67e8f9;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.form-header h3 {
+  margin: 8px 0 0;
+  color: var(--text-primary);
+  font-size: 1.46rem;
+}
+
+label {
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 8px;
+  background: rgba(2, 6, 23, 0.62);
+  color: var(--text-primary);
+  font: inherit;
+  padding: 13px 14px;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(148, 163, 184, 0.68);
+}
+
+input:focus,
+textarea:focus {
+  border-color: rgba(103, 232, 249, 0.58);
+  background: rgba(2, 6, 23, 0.82);
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
   outline: none;
 }
 
-.submit-button {
-  background-color: #28a745;
-  color: white;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 20px;
-  width: 100%; /* Makes the button as wide as the container */
-  max-width: 300px; /* Optional: Restrict button width */
-  margin-left: auto;
-  margin-right: auto;
+button {
+  min-height: 48px;
+  margin-top: 6px;
+  border: 1px solid rgba(34, 211, 238, 0.52);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #0891b2, #7c3aed);
+  color: var(--text-primary);
+  font: inherit;
+  font-weight: 900;
+  transition: transform 180ms ease, opacity 180ms ease, box-shadow 180ms ease;
 }
 
-.submit-button:disabled {
-  background-color: #aaa;
-  cursor: not-allowed;
+button:hover:not(:disabled) {
+  box-shadow: 0 18px 46px rgba(124, 58, 237, 0.32);
+  transform: translateY(-2px);
 }
 
-.submit-button:hover:not(:disabled) {
-  background-color: #218838;
+button:disabled {
+  opacity: 0.42;
 }
 
-  
+@media (max-width: 960px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-copy h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .contact-section {
+    min-height: auto;
+    padding-top: 84px;
+    padding-bottom: 72px;
+  }
+
+  .contact-copy h2 {
+    font-size: 2.06rem;
+  }
+
+  .contact-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .contact-form {
+    padding: 22px;
+  }
+}

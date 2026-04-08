@@ -1,26 +1,72 @@
-<div class="first-page">
-    <div class="content-container fade-in-border">
-      <!-- Text and Button Section -->
-      <div class="details-container">
-        <h1>Rohith Raj</h1>
-        <p>
-          Full Stack Developer | Crafting Scalable Solutions with Angular, .NET Core, and Databases
-        </p>
-        <div class="buttons-container">
-          <a href="assets/resume.pdf" download class="action-btn download-btn">Download CV</a>
-          <a href="https://github.com/rohithrjnr" target="_blank" class="icon-btn">
-            <img src="assets/github-logo.png" alt="GitHub" class="icon" />
-          </a>
-          <a href="https://linkedin.com/in/rohith-raj-nambiar" target="_blank" class="icon-btn">
-            <img src="assets/linkedin-logo.png" alt="LinkedIn" class="icon" />
-          </a>
+<div class="hero-section">
+  <div class="hero-grid">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Full Stack Developer</p>
+      <h1>
+        Rohith Raj
+        <span>building fast, scalable product experiences.</span>
+      </h1>
+      <p class="typing-line" aria-label="Animated developer roles">
+        I ship
+        <span class="typed-text">{{ typedRole }}</span>
+        <span class="caret" aria-hidden="true"></span>
+      </p>
+      <p class="hero-description">
+        I design and build high-quality applications with Angular, .NET Core, SQL, and clean user experience thinking across ERP, payroll, task management, and mobile-adjacent products.
+      </p>
+
+      <div class="hero-actions" aria-label="Primary calls to action">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-secondary">Contact</a>
+        <a href="assets/resume.pdf" download class="btn btn-link">Download CV</a>
+      </div>
+
+      <div class="social-row" aria-label="Social links">
+        <a href="https://github.com/rohithrjnr" target="_blank" rel="noopener" class="social-link">
+          <img src="assets/github-logo.png" alt="" aria-hidden="true" />
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/rohith-raj-nambiar" target="_blank" rel="noopener" class="social-link">
+          <img src="assets/linkedin-logo.png" alt="" aria-hidden="true" />
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal delay-2" aria-label="Portfolio snapshot">
+      <div class="profile-card animated-border">
+        <div class="profile-image-wrap">
+          <img src="assets/picture.png" alt="Rohith Raj" />
+        </div>
+        <div class="profile-meta">
+          <span>Available for full-stack work</span>
+          <strong>Angular + .NET + SQL</strong>
         </div>
       </div>
-  
-      <!-- Image Section -->
-      <div class="image-container">
-        <img src="assets/picture.png" alt="Portfolio Image" class="fade-in" />
+
+      <div class="terminal-card">
+        <div class="terminal-topbar" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <pre><code [textContent]="codeSnippet"></code></pre>
+      </div>
+
+      <div class="hero-metrics" aria-label="Experience metrics">
+        <div>
+          <strong>1.5+</strong>
+          <span>Years professional</span>
+        </div>
+        <div>
+          <strong>5+</strong>
+          <span>Years coding</span>
+        </div>
+        <div>
+          <strong>6</strong>
+          <span>Featured projects</span>
+        </div>
       </div>
     </div>
   </div>
-  
+</div>

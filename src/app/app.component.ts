@@ -1,67 +1,157 @@
-import { Component, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, ViewChild } from '@angular/core';
+
+type SectionId = 'home' | 'about' | 'skills' | 'experience' | 'projects' | 'contact';
+
+interface PortfolioSection {
+  id: SectionId;
+  element: HTMLElement;
+}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'] // Fixing "styleUrl" to "styleUrls"
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit, OnDestroy {
   title = 'portfolio-project';
 
-  @ViewChild('projectsSection', { static: false }) projectsSection!: ElementRef;
-  @ViewChild('homeSection', { static: false }) homeSection!: ElementRef;
-  @ViewChild('skillSection', { static: false }) skillSection!: ElementRef;
-  @ViewChild('aboutmeSection', { static: false }) aboutmeSection!: ElementRef;
-  @ViewChild('contactSection', { static: false }) contactSection!: ElementRef;
+  @ViewChild('homeSection') homeSection?: ElementRef<HTMLElement>;
+  @ViewChild('aboutSection') aboutSection?: ElementRef<HTMLElement>;
+  @ViewChild('skillSection') skillSection?: ElementRef<HTMLElement>;
+  @ViewChild('experienceSection') experienceSection?: ElementRef<HTMLElement>;
+  @ViewChild('projectsSection') projectsSection?: ElementRef<HTMLElement>;
+  @ViewChild('contactSection') contactSection?: ElementRef<HTMLElement>;
 
-  currentSection: string = 'home'; // Tracks the current section visible
+  currentSection: SectionId = 'home';
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll(): void {
-    const projectsSectionPosition = this.projectsSection?.nativeElement.offsetTop;
-    const homeSectionPosition = this.homeSection?.nativeElement.offsetTop;
-    const skillSectionPosition = this.skillSection?.nativeElement.offsetTop;
-    const aboutmeSectionPosition=this.aboutmeSection?.nativeElement.offsetTop;
-    const contactSectionPosition=this.contactSection?.nativeElement.offsetTop;
+  private sectionElements: PortfolioSection[] = [];
+  private revealObserver?: IntersectionObserver;
+  private cursorDot?: HTMLElement | null;
+  private cursorRing?: HTMLElement | null;
+  private cursorFrame = 0;
+  private cursorX = 0;
+  private cursorY = 0;
 
-    
-    const scrollPosition = window.pageYOffset + window.innerHeight / 2;
+  ngAfterViewInit(): void {
+    this.sectionElements = [
+      this.toSection('home', this.homeSection),
+      this.toSection('about', this.aboutSection),
+      this.toSection('skills', this.skillSection),
+      this.toSection('experience', this.experienceSection),
+      this.toSection('projects', this.projectsSection),
+      this.toSection('contact', this.contactSection)
+    ].filter((section): section is PortfolioSection => section !== null);
 
-    if (scrollPosition >= projectsSectionPosition) {
-      this.currentSection = 'projects';
-    } else if (scrollPosition >= homeSectionPosition) {
-      this.currentSection = 'home';
-    }
-    else if (scrollPosition >= skillSectionPosition) {
-      this.currentSection = 'skills';
-    }
-    else if (scrollPosition >= aboutmeSectionPosition) {
-      this.currentSection = 'aboutme';
-    }
-    else if (scrollPosition >= contactSectionPosition) {
-      this.currentSection = 'contact';
+    this.cursorDot = document.querySelector('.custom-cursor-dot');
+    this.cursorRing = document.querySelector('.custom-cursor-ring');
+    document.body.classList.add('cursor-ready');
+
+    this.observeRevealElements();
+    this.updateActiveSection();
+    this.updateParallax();
+  }
+
+  ngOnDestroy(): void {
+    this.revealObserver?.disconnect();
+    document.body.classList.remove('cursor-ready');
+
+    if (this.cursorFrame) {
+      cancelAnimationFrame(this.cursorFrame);
     }
   }
 
-  scrollToSection(section: string): void {
-    let targetSection: HTMLElement;
+  @HostListener('window:scroll', ['$event'])
+  onScroll(): void {
+    this.updateActiveSection();
+    this.updateParallax();
+  }
 
-    if (section === 'home') {
-      targetSection = this.homeSection.nativeElement;
-    } else if (section === 'projects') {
-      targetSection = this.projectsSection.nativeElement;
-    } 
-     else if (section === 'skills') {
-    targetSection = this.skillSection.nativeElement;
-     }else if (section === 'aboutme') {
-      targetSection = this.aboutmeSection.nativeElement;
-    }else if (section === 'contact') {
-      targetSection = this.contactSection.nativeElement;
+  @HostListener('window:resize')
+  onResize(): void {
+    this.updateActiveSection();
+  }
+
+  @HostListener('window:mousemove', ['$event'])
+  onMouseMove(event: MouseEvent): void {
+    if (!this.cursorDot || !this.cursorRing || window.matchMedia('(pointer: coarse)').matches) {
+      return;
     }
-  else {
+
+    this.cursorX = event.clientX;
+    this.cursorY = event.clientY;
+
+    if (this.cursorFrame) {
+      return;
+    }
+
+    this.cursorFrame = requestAnimationFrame(() => {
+      this.cursorDot?.style.setProperty('transform', `translate3d(${this.cursorX}px, ${this.cursorY}px, 0)`);
+      this.cursorRing?.style.setProperty('transform', `translate3d(${this.cursorX}px, ${this.cursorY}px, 0)`);
+      this.cursorFrame = 0;
+    });
+  }
+
+  scrollToSection(section: string): void {
+    const targetSection = this.sectionElements.find((item) => item.id === section)?.element;
+
+    if (!targetSection) {
       return;
     }
 
     targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    this.currentSection = section as SectionId;
+  }
+
+  private toSection(id: SectionId, ref?: ElementRef<HTMLElement>): PortfolioSection | null {
+    return ref?.nativeElement ? { id, element: ref.nativeElement } : null;
+  }
+
+  private updateActiveSection(): void {
+    if (!this.sectionElements.length) {
+      return;
+    }
+
+    const scrollPosition = window.scrollY + window.innerHeight * 0.36;
+    let activeSection: SectionId = 'home';
+
+    for (const section of this.sectionElements) {
+      if (scrollPosition >= section.element.offsetTop) {
+        activeSection = section.id;
+      }
+    }
+
+    this.currentSection = activeSection;
+  }
+
+  private observeRevealElements(): void {
+    const revealElements = document.querySelectorAll<HTMLElement>('.reveal');
+
+    if (!('IntersectionObserver' in window)) {
+      revealElements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+
+    this.revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add('is-visible');
+          this.revealObserver?.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.16,
+        rootMargin: '0px 0px -10% 0px'
+      }
+    );
+
+    revealElements.forEach((element) => this.revealObserver?.observe(element));
+  }
+
+  private updateParallax(): void {
+    document.documentElement.style.setProperty('--scroll-y', `${window.scrollY * 0.035}`);
   }
 }

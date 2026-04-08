@@ -1,9 +1,50 @@
-<section class="about-section">
-    <h2 class="section-title">About Me</h2>
-    <div class="about-content">
-        <p>Hi! I'm a Full Stack Developer with 1.5 years of professional experience. I specialize in building scalable, efficient, and high-quality applications using Angular, .NET Core, SQL, and other technologies. My journey in programming started over 5 years ago, and I'm always learning and evolving to stay on top of the latest trends and technologies.</p>
-        <p>Throughout my career, I have worked on various projects in Accounting, Payroll, Task Management, ERP systems, and Mobile Applications. I have a strong foundation in both backend and frontend technologies, and I'm passionate about solving complex problems. My experience spans multiple languages, and I’m quick to adapt and learn new skills to deliver robust solutions.</p>
-        <p>In addition to my technical expertise, I have a keen interest in designing intuitive user experiences and optimizing performance. Whether it's developing ERP systems, managing tasks, or integrating with third-party APIs, I always strive to deliver solutions that are user-friendly and scalable for future growth.</p>
-        <p>When I'm not coding, you can find me exploring new programming languages, working on personal projects, or keeping up with the latest developments in the tech industry. I'm excited about new challenges and opportunities to grow further in the ever-evolving world of software development.</p>
+<section class="about-section section-container">
+  <div class="section-header reveal">
+    <p class="section-kicker">About</p>
+    <h2>Systems thinking, product polish, and practical engineering.</h2>
+    <p>
+      I build scalable, efficient applications with a strong frontend and backend foundation, then shape the details so the experience feels fast, clean, and easy to use.
+    </p>
+  </div>
+
+  <div class="about-grid">
+    <article class="about-card reveal animated-border">
+      <p>
+        I am a Full Stack Developer with professional experience across Angular, .NET Core, SQL, and adjacent technologies. My programming journey started more than five years ago, and I keep sharpening the stack through production work and personal builds.
+      </p>
+      <p>
+        I have worked across accounting, payroll, task management, ERP systems, and mobile application workflows. I care about building reliable systems, integrating APIs cleanly, and keeping the user experience intuitive as products grow.
+      </p>
+      <p>
+        Outside day-to-day delivery, I explore new languages, rebuild ideas as side projects, and keep learning the patterns behind better software.
+      </p>
+    </article>
+
+    <aside class="focus-panel reveal delay-1">
+      <div class="focus-card">
+        <span>01</span>
+        <h3>Frontend Craft</h3>
+        <p>Angular architecture, responsive interfaces, interaction states, and performance-focused UI.</p>
+      </div>
+      <div class="focus-card">
+        <span>02</span>
+        <h3>Backend Reliability</h3>
+        <p>.NET Core services, SQL data flows, validation, integration, and maintainable API contracts.</p>
+      </div>
+      <div class="focus-card">
+        <span>03</span>
+        <h3>Product Sense</h3>
+        <p>Practical UX choices for dashboards, ERP modules, task flows, and operational tools.</p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="skill-groups reveal delay-2" aria-label="Skill groups">
+    <div class="skill-group" *ngFor="let group of skillGroups">
+      <h3>{{ group.title }}</h3>
+      <div class="chip-list">
+        <span class="chip" *ngFor="let skill of group.skills">{{ skill }}</span>
+      </div>
     </div>
+  </div>
 </section>
