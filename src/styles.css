@@ -10,6 +10,9 @@
   --accent-blue: #38bdf8;
   --accent-purple: #a855f7;
   --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.28);
+  --shadow-lift: 0 30px 90px rgba(0, 0, 0, 0.38);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snappy: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 *,
@@ -37,14 +40,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body.cursor-ready,
-body.cursor-ready a,
-body.cursor-ready button,
-body.cursor-ready input,
-body.cursor-ready textarea {
-  cursor: none;
-}
-
 a {
   color: inherit;
 }
@@ -57,6 +52,7 @@ textarea {
 
 button {
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button:disabled {
@@ -66,6 +62,11 @@ button:disabled {
 img {
   display: block;
   max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(103, 232, 249, 0.82);
+  outline-offset: 4px;
 }
 
 ::selection {
@@ -108,21 +109,24 @@ img {
 
 .reveal {
   opacity: 0;
-  transform: translateY(22px) scale(0.985);
-  transition: opacity 700ms ease, transform 700ms ease;
+  transform: translate3d(0, 24px, 0) scale(0.985);
+  transition:
+    opacity 680ms var(--ease-smooth) var(--reveal-delay, 0ms),
+    transform 680ms var(--ease-smooth) var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translate3d(0, 0, 0) scale(1);
 }
 
 .delay-1 {
-  transition-delay: 120ms;
+  --reveal-delay: 120ms;
 }
 
 .delay-2 {
-  transition-delay: 220ms;
+  --reveal-delay: 220ms;
 }
 
 .animated-border {
@@ -144,7 +148,7 @@ img {
   mask-composite: exclude;
   opacity: 0.48;
   pointer-events: none;
-  animation: border-flow 5s linear infinite;
+  animation: border-flow 6s linear infinite;
 }
 
 .animated-border > * {
@@ -170,24 +174,6 @@ img {
   .section-header h2 {
     font-size: 2.2rem;
   }
-
-  body.cursor-ready,
-  body.cursor-ready a,
-  body.cursor-ready button,
-  body.cursor-ready input,
-  body.cursor-ready textarea {
-    cursor: auto;
-  }
-}
-
-@media (pointer: coarse) {
-  body.cursor-ready,
-  body.cursor-ready a,
-  body.cursor-ready button,
-  body.cursor-ready input,
-  body.cursor-ready textarea {
-    cursor: auto;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -207,5 +193,6 @@ img {
   .reveal {
     opacity: 1;
     transform: none;
+    transition: none;
   }
 }

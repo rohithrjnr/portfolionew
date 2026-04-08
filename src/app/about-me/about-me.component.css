@@ -17,7 +17,15 @@
   border-radius: 8px;
   background: linear-gradient(145deg, rgba(15, 23, 42, 0.74), rgba(15, 23, 42, 0.42));
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  transition: border-color 260ms var(--ease-smooth), box-shadow 260ms var(--ease-smooth), transform 260ms var(--ease-smooth);
   backdrop-filter: blur(18px);
+}
+
+.about-card:hover,
+.skill-group:hover {
+  border-color: rgba(103, 232, 249, 0.32);
+  box-shadow: var(--shadow-lift);
+  transform: translate3d(0, -3px, 0);
 }
 
 .about-card {
@@ -44,7 +52,8 @@
   position: relative;
   overflow: hidden;
   padding: 24px;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  transition: transform 260ms var(--ease-smooth), border-color 260ms var(--ease-smooth), background 260ms var(--ease-smooth), box-shadow 260ms var(--ease-smooth);
+  will-change: transform;
 }
 
 .focus-card::before {
@@ -53,13 +62,14 @@
   inset: 0;
   background: linear-gradient(135deg, rgba(34, 211, 238, 0.12), transparent 48%, rgba(168, 85, 247, 0.12));
   opacity: 0;
-  transition: opacity 180ms ease;
+  transition: opacity 260ms var(--ease-smooth);
 }
 
 .focus-card:hover {
   border-color: rgba(103, 232, 249, 0.42);
   background: rgba(15, 23, 42, 0.82);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+  transform: translate3d(0, -5px, 0);
 }
 
 .focus-card:hover::before {
@@ -120,6 +130,14 @@
   color: #cbd5e1;
   font-size: 0.86rem;
   font-weight: 700;
+  transition: border-color 220ms var(--ease-smooth), background 220ms var(--ease-smooth), color 220ms var(--ease-smooth), transform 220ms var(--ease-smooth);
+}
+
+.chip:hover {
+  border-color: rgba(103, 232, 249, 0.46);
+  background: rgba(8, 47, 73, 0.46);
+  color: #e0f2fe;
+  transform: translate3d(0, -2px, 0);
 }
 
 @media (max-width: 920px) {

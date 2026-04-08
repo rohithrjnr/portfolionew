@@ -1,9 +1,11 @@
 <div class="site-background" aria-hidden="true"></div>
-<div class="custom-cursor custom-cursor-dot" aria-hidden="true"></div>
-<div class="custom-cursor custom-cursor-ring" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true">
+  <span [style.transform]="'scaleX(' + scrollProgress + ')'"></span>
+</div>
 
 <app-navbar
   [activeSection]="currentSection"
+  [scrolled]="hasScrolled"
   (navigateToSection)="scrollToSection($event)"
 ></app-navbar>
 

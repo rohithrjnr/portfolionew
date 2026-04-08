@@ -23,14 +23,12 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   @ViewChild('contactSection') contactSection?: ElementRef<HTMLElement>;
 
   currentSection: SectionId = 'home';
+  hasScrolled = false;
+  scrollProgress = 0;
 
   private sectionElements: PortfolioSection[] = [];
   private revealObserver?: IntersectionObserver;
-  private cursorDot?: HTMLElement | null;
-  private cursorRing?: HTMLElement | null;
-  private cursorFrame = 0;
-  private cursorX = 0;
-  private cursorY = 0;
+  private scrollFrame = 0;
 
   ngAfterViewInit(): void {
     this.sectionElements = [
@@ -42,53 +40,26 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       this.toSection('contact', this.contactSection)
     ].filter((section): section is PortfolioSection => section !== null);
 
-    this.cursorDot = document.querySelector('.custom-cursor-dot');
-    this.cursorRing = document.querySelector('.custom-cursor-ring');
-    document.body.classList.add('cursor-ready');
-
     this.observeRevealElements();
-    this.updateActiveSection();
-    this.updateParallax();
+    this.queueScrollUpdate();
   }
 
   ngOnDestroy(): void {
     this.revealObserver?.disconnect();
-    document.body.classList.remove('cursor-ready');
 
-    if (this.cursorFrame) {
-      cancelAnimationFrame(this.cursorFrame);
+    if (this.scrollFrame) {
+      cancelAnimationFrame(this.scrollFrame);
     }
   }
 
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll')
   onScroll(): void {
-    this.updateActiveSection();
-    this.updateParallax();
+    this.queueScrollUpdate();
   }
 
   @HostListener('window:resize')
   onResize(): void {
-    this.updateActiveSection();
-  }
-
-  @HostListener('window:mousemove', ['$event'])
-  onMouseMove(event: MouseEvent): void {
-    if (!this.cursorDot || !this.cursorRing || window.matchMedia('(pointer: coarse)').matches) {
-      return;
-    }
-
-    this.cursorX = event.clientX;
-    this.cursorY = event.clientY;
-
-    if (this.cursorFrame) {
-      return;
-    }
-
-    this.cursorFrame = requestAnimationFrame(() => {
-      this.cursorDot?.style.setProperty('transform', `translate3d(${this.cursorX}px, ${this.cursorY}px, 0)`);
-      this.cursorRing?.style.setProperty('transform', `translate3d(${this.cursorX}px, ${this.cursorY}px, 0)`);
-      this.cursorFrame = 0;
-    });
+    this.queueScrollUpdate();
   }
 
   scrollToSection(section: string): void {
@@ -124,7 +95,16 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   private observeRevealElements(): void {
-    const revealElements = document.querySelectorAll<HTMLElement>('.reveal');
+    const revealElements = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
+
+    revealElements.forEach((element) => {
+      const parent = element.parentElement;
+      const revealSiblings = parent ? Array.from(parent.children).filter((child) => child.classList.contains('reveal')) : [];
+      const revealIndex = Math.max(revealSiblings.indexOf(element), 0);
+      if (!element.classList.contains('delay-1') && !element.classList.contains('delay-2')) {
+        element.style.setProperty('--reveal-delay', `${Math.min(revealIndex * 70, 280)}ms`);
+      }
+    });
 
     if (!('IntersectionObserver' in window)) {
       revealElements.forEach((element) => element.classList.add('is-visible'));
@@ -153,5 +133,25 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   private updateParallax(): void {
     document.documentElement.style.setProperty('--scroll-y', `${window.scrollY * 0.035}`);
+  }
+
+  private queueScrollUpdate(): void {
+    if (this.scrollFrame) {
+      return;
+    }
+
+    this.scrollFrame = requestAnimationFrame(() => {
+      this.updateScrollState();
+      this.scrollFrame = 0;
+    });
+  }
+
+  private updateScrollState(): void {
+    this.updateActiveSection();
+    this.updateParallax();
+    this.hasScrolled = window.scrollY > 16;
+
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    this.scrollProgress = scrollableHeight > 0 ? Math.min(window.scrollY / scrollableHeight, 1) : 0;
   }
 }

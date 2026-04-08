@@ -12,6 +12,7 @@ interface NavItem {
 })
 export class NavbarComponent {
   @Input() activeSection = 'home';
+  @Input() scrolled = false;
   @Output() navigateToSection = new EventEmitter<string>();
 
   isMenuOpen = false;
