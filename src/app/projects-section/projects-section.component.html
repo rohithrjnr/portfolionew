@@ -2,63 +2,79 @@
   <div class="projects-header reveal">
     <div class="section-header">
       <p class="section-kicker">Projects</p>
-      <h2>Selected builds with real demos, source, and stack context.</h2>
+      <h2>Live from GitHub, ordered by what I’ve worked on recently.</h2>
       <p>
-        A focused set of projects spanning Angular, React, Python, Flask, dashboards, and workflow tools.
+        A curated list of my GitHub projects, highlighting the tools, technologies, and solutions I’ve been working on.
       </p>
     </div>
-
-    <div class="project-filters" aria-label="Project filters">
-      <button
-        *ngFor="let filter of filters"
-        type="button"
-        [class.active]="selectedCategory === filter"
-        [attr.aria-pressed]="selectedCategory === filter"
-        (click)="filterProjects(filter)"
-      >
-        {{ filter }}
-      </button>
-    </div>
   </div>
 
-  <div class="projects-grid">
-    <article
-      class="project-card project-card-enter animated-border"
-      *ngFor="let project of filteredProjects; trackBy: trackByProjectId"
-    >
-      <a class="project-preview" [href]="project.demoUrl" target="_blank" rel="noopener">
-        <img [src]="project.image" [alt]="project.title + ' preview'" loading="lazy" />
-        <span class="preview-overlay">Explore project</span>
-      </a>
+  <ng-container *ngIf="vm$ | async as vm">
+    <div class="repo-toolbar reveal">
+      <label class="repo-search">
+        <span>Search repositories</span>
+        <input
+          type="search"
+          [ngModel]="vm.searchTerm"
+          (ngModelChange)="updateSearchTerm($event)"
+          placeholder="Search by name or description"
+        />
+      </label>
 
-      <div class="project-body">
-        <div class="project-title-row">
-          <h3>{{ project.title }}</h3>
-          <a [href]="project.demoUrl" target="_blank" rel="noopener" aria-label="Open live demo">Live</a>
-        </div>
-        <p>{{ project.description }}</p>
-
-        <div class="project-tags">
-          <span *ngFor="let tech of project.techStack">{{ tech }}</span>
-        </div>
-
-        <div class="project-actions">
-          <a [href]="project.demoUrl" target="_blank" rel="noopener" class="project-action primary">Live Demo</a>
-          <button type="button" class="project-action secondary" (click)="openSourceCodePopup(project)">
-            Source Code
-          </button>
-        </div>
+      <div class="project-filters" aria-label="Repository language filters">
+        <button
+          *ngFor="let language of vm.languageFilters; trackBy: trackByLanguage"
+          type="button"
+          [class.active]="vm.selectedLanguage === language"
+          [attr.aria-pressed]="vm.selectedLanguage === language"
+          (click)="setLanguageFilter(language)"
+        >
+          {{ language }}
+        </button>
       </div>
-    </article>
-  </div>
-
-  <div class="popup" *ngIf="selectedProject as project" role="dialog" aria-modal="true" (click)="closeSourceCodePopup()">
-    <div class="popup-content" (click)="$event.stopPropagation()">
-      <p class="section-kicker">Repository</p>
-      <h3>{{ project.title }}</h3>
-      <a [href]="project.frontendRepo" target="_blank" rel="noopener" class="repo-link">Frontend Repository</a>
-      <a *ngIf="project.backendRepo" [href]="project.backendRepo" target="_blank" rel="noopener" class="repo-link">Backend Repository</a>
-      <button type="button" class="close-popup" (click)="closeSourceCodePopup()">Close</button>
     </div>
-  </div>
+
+    <div class="repo-status loading-state" *ngIf="vm.isLoading">
+      <span></span>
+      Fetching repositories from GitHub...
+    </div>
+
+    <div class="repo-status error-state" *ngIf="!vm.isLoading && vm.errorMessage">
+      {{ vm.errorMessage }}
+    </div>
+
+    <div class="repo-status empty-state" *ngIf="!vm.isLoading && !vm.errorMessage && !vm.filteredRepos.length">
+      No repositories match the current filters.
+    </div>
+
+    <div class="repos-list" *ngIf="!vm.isLoading && !vm.errorMessage && vm.filteredRepos.length">
+      <article
+        class="repo-item repo-item-enter"
+        *ngFor="let repo of vm.filteredRepos; trackBy: trackByRepoId"
+      >
+        <div class="repo-main">
+          <div class="repo-title-row">
+            <h3>{{ repo.name }}</h3>
+            <span class="repo-language">{{ repo.language || 'Mixed' }}</span>
+          </div>
+
+          <p>{{ repo.description || 'No description provided yet.' }}</p>
+
+          <div class="repo-meta">
+            <span>Updated {{ repo.updated_at | date: 'mediumDate' }}</span>
+            <span *ngIf="repo.archived">Archived</span>
+          </div>
+        </div>
+
+        <div class="repo-actions">
+          <a [href]="repo.html_url" target="_blank" rel="noopener" class="project-action secondary">
+            View Code
+          </a>
+          <a *ngIf="repo.homepage" [href]="repo.homepage" target="_blank" rel="noopener" class="project-action primary">
+            Live Demo
+          </a>
+        </div>
+      </article>
+    </div>
+  </ng-container>
 </section>
