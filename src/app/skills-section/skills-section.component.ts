@@ -34,11 +34,11 @@ export class SkillsSectionComponent {
       title: 'Backend & Data',
       description: 'APIs, business workflows, data access, and database-heavy products.',
       skills: [
-        { name: 'C#', icon: 'assets/csharp-icon.png', level: 88 },
-        { name: '.NET', icon: 'assets/dotnet-icon.png', level: 88 },
-        { name: 'Microsoft SQL', icon: 'assets/sql-icon.png', level: 86 },
+        { name: 'C#', icon: 'assets/csharp-icon.png', level: 95 },
+        { name: '.NET', icon: 'assets/dotnet-icon.png', level: 93 },
+        { name: 'Microsoft SQL', icon: 'assets/sql-icon.png', level: 90 },
         { name: 'Oracle', icon: 'assets/oracle-icon.png', level: 78 },
-        { name: 'PL/SQL', icon: 'assets/plsql-icon.png', level: 76 }
+        { name: 'PL/SQL', icon: 'assets/plsql-icon.png', level: 90 }
       ]
     },
     {
@@ -49,7 +49,7 @@ export class SkillsSectionComponent {
         { name: 'Flask', icon: 'assets/flask-icon.png', level: 78 },
         { name: 'Django', icon: 'assets/django-icon.png', level: 70 },
         { name: 'Flutter', icon: 'assets/flutter-icon.png', level: 68 },
-        { name: 'Git', icon: 'assets/git-icon.png', level: 84 },
+        { name: 'Git', icon: 'assets/git-icon.png', level: 94 },
         { name: 'Docker', icon: 'assets/docker-icon.png', level: 70 }
       ]
     }
