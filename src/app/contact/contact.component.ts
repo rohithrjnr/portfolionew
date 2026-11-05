@@ -19,7 +19,7 @@ export class ContactComponent {
   readonly contactItems: ContactItem[] = [
     {
       label: 'Phone',
-      value: '+91 9605860533',
+      value: '+91 9605860539',
       href: 'https://wa.link/0yztgp'
     },
     {
