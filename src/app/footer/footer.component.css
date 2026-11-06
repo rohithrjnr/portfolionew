@@ -7,8 +7,8 @@
   justify-content: space-between;
   gap: 14px;
   padding: 24px max(24px, calc((100% - 1120px) / 2));
-  border-top: 1px solid rgba(148, 163, 184, 0.18);
-  background: rgba(2, 6, 23, 0.78);
+  border-top: 1px solid rgba(186, 160, 226, 0.18);
+  background: rgba(10, 5, 18, 0.78);
   color: var(--text-muted);
 }
 

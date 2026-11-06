@@ -13,9 +13,9 @@
 .about-card,
 .focus-card,
 .skill-group {
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  border: 1px solid rgba(186, 160, 226, 0.18);
   border-radius: 8px;
-  background: linear-gradient(145deg, rgba(15, 23, 42, 0.74), rgba(15, 23, 42, 0.42));
+  background: linear-gradient(145deg, rgba(30, 19, 52, 0.74), rgba(30, 19, 52, 0.42));
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
   transition: border-color 260ms var(--ease-smooth), box-shadow 260ms var(--ease-smooth), transform 260ms var(--ease-smooth);
   backdrop-filter: blur(18px);
@@ -23,7 +23,7 @@
 
 .about-card:hover,
 .skill-group:hover {
-  border-color: rgba(103, 232, 249, 0.32);
+  border-color: rgba(201, 170, 255, 0.32);
   box-shadow: var(--shadow-lift);
   transform: translate3d(0, -3px, 0);
 }
@@ -60,14 +60,14 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.12), transparent 48%, rgba(168, 85, 247, 0.12));
+  background: linear-gradient(135deg, rgba(169, 139, 255, 0.12), transparent 48%, rgba(232, 121, 200, 0.12));
   opacity: 0;
   transition: opacity 260ms var(--ease-smooth);
 }
 
 .focus-card:hover {
-  border-color: rgba(103, 232, 249, 0.42);
-  background: rgba(15, 23, 42, 0.82);
+  border-color: rgba(201, 170, 255, 0.42);
+  background: rgba(30, 19, 52, 0.82);
   box-shadow: var(--shadow-lift);
   transform: translate3d(0, -5px, 0);
 }
@@ -79,7 +79,7 @@
 .focus-card span {
   display: inline-flex;
   margin-bottom: 14px;
-  color: #67e8f9;
+  color: #c9aaff;
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.16em;
@@ -124,19 +124,19 @@
   align-items: center;
   min-height: 34px;
   padding: 0 12px;
-  border: 1px solid rgba(103, 232, 249, 0.22);
+  border: 1px solid rgba(201, 170, 255, 0.22);
   border-radius: 999px;
-  background: rgba(8, 47, 73, 0.24);
-  color: #cbd5e1;
+  background: rgba(52, 27, 84, 0.24);
+  color: #d9cdec;
   font-size: 0.86rem;
   font-weight: 700;
   transition: border-color 220ms var(--ease-smooth), background 220ms var(--ease-smooth), color 220ms var(--ease-smooth), transform 220ms var(--ease-smooth);
 }
 
 .chip:hover {
-  border-color: rgba(103, 232, 249, 0.46);
-  background: rgba(8, 47, 73, 0.46);
-  color: #e0f2fe;
+  border-color: rgba(201, 170, 255, 0.46);
+  background: rgba(52, 27, 84, 0.46);
+  color: #f6efff;
   transform: translate3d(0, -2px, 0);
 }
 

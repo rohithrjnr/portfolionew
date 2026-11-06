@@ -14,9 +14,9 @@
   align-items: end;
   margin-top: 42px;
   padding: 18px;
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  border: 1px solid rgba(186, 160, 226, 0.16);
   border-radius: 8px;
-  background: rgba(15, 23, 42, 0.46);
+  background: rgba(30, 19, 52, 0.46);
   box-shadow: 0 18px 54px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(18px);
 }
@@ -37,22 +37,22 @@
 .repo-search input {
   width: 100%;
   min-height: 44px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  border: 1px solid rgba(186, 160, 226, 0.2);
   border-radius: 8px;
   padding: 0 14px;
-  background: rgba(2, 6, 23, 0.62);
+  background: rgba(10, 5, 18, 0.62);
   color: var(--text-primary);
   transition: border-color 220ms var(--ease-smooth), box-shadow 220ms var(--ease-smooth), background 220ms var(--ease-smooth);
 }
 
 .repo-search input::placeholder {
-  color: rgba(148, 163, 184, 0.66);
+  color: rgba(186, 160, 226, 0.66);
 }
 
 .repo-search input:focus {
-  border-color: rgba(103, 232, 249, 0.52);
-  background: rgba(2, 6, 23, 0.82);
-  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
+  border-color: rgba(201, 170, 255, 0.52);
+  background: rgba(10, 5, 18, 0.82);
+  box-shadow: 0 0 0 3px rgba(169, 139, 255, 0.12);
   outline: none;
 }
 
@@ -70,10 +70,10 @@
 
 .project-filters button {
   min-height: 38px;
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  border: 1px solid rgba(186, 160, 226, 0.18);
   border-radius: 999px;
   padding: 0 14px;
-  background: rgba(15, 23, 42, 0.64);
+  background: rgba(30, 19, 52, 0.64);
   color: var(--text-muted);
   font: inherit;
   font-size: 0.86rem;
@@ -89,10 +89,10 @@
 
 .project-filters button:hover,
 .project-filters button.active {
-  border-color: rgba(103, 232, 249, 0.45);
-  background: rgba(8, 47, 73, 0.64);
-  color: #cffafe;
-  box-shadow: 0 12px 28px rgba(34, 211, 238, 0.12);
+  border-color: rgba(201, 170, 255, 0.45);
+  background: rgba(52, 27, 84, 0.64);
+  color: #f0e7ff;
+  box-shadow: 0 12px 28px rgba(169, 139, 255, 0.12);
   transform: translate3d(0, -2px, 0);
 }
 
@@ -112,9 +112,9 @@
   gap: 24px;
   align-items: center;
   padding: 24px;
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  border: 1px solid rgba(186, 160, 226, 0.16);
   border-radius: 8px;
-  background: linear-gradient(145deg, rgba(15, 23, 42, 0.68), rgba(15, 23, 42, 0.34));
+  background: linear-gradient(145deg, rgba(30, 19, 52, 0.68), rgba(30, 19, 52, 0.34));
   box-shadow: 0 18px 54px rgba(0, 0, 0, 0.18);
   transition:
     transform 260ms var(--ease-smooth),
@@ -126,9 +126,9 @@
 }
 
 .repo-item:hover {
-  border-color: rgba(103, 232, 249, 0.42);
-  background: linear-gradient(145deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.48));
-  box-shadow: 0 28px 74px rgba(0, 0, 0, 0.28), 0 0 30px rgba(34, 211, 238, 0.08);
+  border-color: rgba(201, 170, 255, 0.42);
+  background: linear-gradient(145deg, rgba(30, 19, 52, 0.82), rgba(30, 19, 52, 0.48));
+  box-shadow: 0 28px 74px rgba(0, 0, 0, 0.28), 0 0 30px rgba(169, 139, 255, 0.08);
   transform: translate3d(0, -4px, 0);
 }
 
@@ -152,10 +152,10 @@
   align-items: center;
   flex: 0 0 auto;
   padding: 0 10px;
-  border: 1px solid rgba(103, 232, 249, 0.22);
+  border: 1px solid rgba(201, 170, 255, 0.22);
   border-radius: 999px;
-  background: rgba(8, 47, 73, 0.24);
-  color: #cbd5e1;
+  background: rgba(52, 27, 84, 0.24);
+  color: #d9cdec;
   font-size: 0.78rem;
   font-weight: 900;
 }
@@ -173,7 +173,7 @@
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 16px;
-  color: rgba(203, 213, 225, 0.72);
+  color: rgba(217, 205, 236, 0.72);
   font-size: 0.82rem;
   font-weight: 800;
 }
@@ -191,17 +191,17 @@
   gap: 12px;
   margin-top: 26px;
   padding: 20px;
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  border: 1px solid rgba(186, 160, 226, 0.16);
   border-radius: 8px;
-  background: rgba(15, 23, 42, 0.44);
+  background: rgba(30, 19, 52, 0.44);
   color: var(--text-secondary);
 }
 
 .loading-state span {
   width: 12px;
   height: 12px;
-  border: 2px solid rgba(103, 232, 249, 0.22);
-  border-top-color: #67e8f9;
+  border: 2px solid rgba(201, 170, 255, 0.22);
+  border-top-color: #c9aaff;
   border-radius: 50%;
   animation: repo-loading 760ms linear infinite;
 }
@@ -226,7 +226,7 @@
   min-height: 42px;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(148, 163, 184, 0.22);
+  border: 1px solid rgba(186, 160, 226, 0.22);
   border-radius: 8px;
   padding: 0 14px;
   color: var(--text-primary);
@@ -243,17 +243,17 @@
 }
 
 .project-action.primary {
-  border-color: rgba(34, 211, 238, 0.5);
-  background: linear-gradient(135deg, rgba(8, 145, 178, 0.9), rgba(124, 58, 237, 0.88));
+  border-color: rgba(169, 139, 255, 0.5);
+  background: linear-gradient(135deg, rgba(109, 76, 216, 0.9), rgba(214, 79, 174, 0.88));
 }
 
 .project-action.secondary {
-  background: rgba(15, 23, 42, 0.72);
+  background: rgba(30, 19, 52, 0.72);
 }
 
 .project-action:hover {
-  border-color: rgba(103, 232, 249, 0.52);
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24), 0 0 24px rgba(34, 211, 238, 0.1);
+  border-color: rgba(201, 170, 255, 0.52);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24), 0 0 24px rgba(169, 139, 255, 0.1);
   transform: translate3d(0, -2px, 0) scale(1.01);
 }
 
